@@ -1,0 +1,36 @@
+{
+    "name": "lightsaml/lightsaml-logout",
+    "license": "GPL-3.0+",
+    "type": "library",
+    "description": "Light SAML2 logout php library",
+    "autoload": {
+        "psr-0": { "LightSaml\\Logout\\": "src/" }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "d:/www/home/lightSAML/lightSAML"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.1",
+        "lightsaml/lightsaml": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "monolog/monolog": "~1.3",
+        "squizlabs/php_codesniffer": "~2.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "bash contrib/setup.sh"
+        ],
+        "post-update-cmd": [
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
