@@ -2,6 +2,8 @@
 
 PHP implementation of SAML logout protocol.
 
+[![License](https://img.shields.io/packagist/l/lightsaml/lightsaml-logout.svg)](https://packagist.org/packages/lightsaml/lightsaml-logout)
+
 ## License
 
 LightSAML-logout is distributed under a dual license: an open source license, and a commercial license. The open
