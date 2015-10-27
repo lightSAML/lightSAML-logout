@@ -3,6 +3,9 @@
 PHP implementation of SAML logout protocol.
 
 [![License](https://img.shields.io/packagist/l/lightsaml/lightsaml-logout.svg)](https://packagist.org/packages/lightsaml/lightsaml-logout)
+[![Build Status](https://travis-ci.org/lightSAML/lightSAML-logout.svg?branch=master)](https://travis-ci.org/lightSAML/lightSAML-logout)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lightSAML/lightSAML-logout/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lightSAML/lightSAML-logout/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/lightSAML/lightSAML-logout/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/lightSAML/lightSAML-logout/?branch=master)
 
 ## License
 
