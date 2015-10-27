@@ -5,7 +5,7 @@ namespace LightSaml\Logout\Action\Profile\Outbound\LogoutRequest;
 use LightSaml\Action\ActionInterface;
 use LightSaml\Action\Profile\AbstractProfileAction;
 use LightSaml\Context\Profile\ProfileContext;
-use LightSaml\Resolver\Logout\LogoutSessionResolverInterface;
+use LightSaml\Logout\Resolver\Logout\LogoutSessionResolverInterface;
 use Psr\Log\LoggerInterface;
 
 class LogoutResolveAction extends AbstractProfileAction
