@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the LightSAML-Logout package.
+ *
+ * (c) Milos Tomic <tmilos@lightsaml.com>
+ *
+ * This source file is subject to the GPL-3 license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace LightSaml\Logout\Action\Profile\Outbound\LogoutRequest;
 
 use LightSaml\Action\Profile\AbstractProfileAction;
@@ -9,7 +18,7 @@ use LightSaml\Provider\TimeProvider\TimeProviderInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * Sets NotOnOrAfter attribute of the outbounding LogoutRequest to the value given by timeProvider plus secondsSkew
+ * Sets NotOnOrAfter attribute of the outbounding LogoutRequest to the value given by timeProvider plus secondsSkew.
  */
 class SetNotOnOrAfterAction extends AbstractProfileAction
 {
