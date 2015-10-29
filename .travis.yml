@@ -9,7 +9,7 @@ before_script:
     - COMPOSER_ROOT_VERSION=dev-master composer install
 
 script:
-    - php php-cs-fixer.phar fix
+    - php php-cs-fixer.phar fix --dry-run -v
     - bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
