@@ -11,8 +11,12 @@
 
 namespace LightSaml\Logout\Builder\Action\Profile\SingleLogout;
 
+use LightSaml\Action\Profile\Outbound\Message\CreateMessageIssuerAction;
+use LightSaml\Action\Profile\Outbound\Message\DestinationAction;
+use LightSaml\Action\Profile\Outbound\Message\ResolveEndpointSloAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\CreateLogoutRequestAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\LogoutResolveAction;
+use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\ResolveLogoutPartyAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\SetNameIdAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\SetNotOnOrAfterAction;
 use LightSaml\Action\Profile\Outbound\Message\MessageIdAction;
@@ -46,6 +50,21 @@ class SloRequestActionBuilder extends AbstractProfileActionBuilder
         $proceedActionBuilder->add(new MessageIssueInstantAction(
             $this->buildContainer->getSystemContainer()->getLogger(),
             $this->buildContainer->getSystemContainer()->getTimeProvider()
+        ));
+        $proceedActionBuilder->add(new ResolveLogoutPartyAction(
+            $this->buildContainer->getPartyContainer()->getIdpEntityDescriptorStore(),
+            $this->buildContainer->getPartyContainer()->getSpEntityDescriptorStore(),
+            $this->buildContainer->getPartyContainer()->getTrustOptionsStore()
+        ));
+        $proceedActionBuilder->add(new ResolveEndpointSloAction(
+            $this->buildContainer->getSystemContainer()->getLogger(),
+            $this->buildContainer->getServiceContainer()->getEndpointResolver()
+        ));
+        $proceedActionBuilder->add(new DestinationAction(
+            $this->buildContainer->getSystemContainer()->getLogger()
+        ));
+        $proceedActionBuilder->add(new CreateMessageIssuerAction(
+            $this->buildContainer->getSystemContainer()->getLogger()
         ));
         $proceedActionBuilder->add(new SetNameIdAction(
             $this->buildContainer->getSystemContainer()->getLogger()
