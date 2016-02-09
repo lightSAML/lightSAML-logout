@@ -15,14 +15,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.5",
-        "monolog/monolog": "~1.3"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "bash contrib/setup.sh"
-        ],
-        "post-update-cmd": [
-        ]
+        "monolog/monolog": "~1.3",
+        "satooshi/php-coveralls": "~0.6"
     },
     "config": {
         "bin-dir": "bin"
