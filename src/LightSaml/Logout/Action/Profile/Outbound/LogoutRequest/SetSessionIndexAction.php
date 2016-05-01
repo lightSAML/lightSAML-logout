@@ -14,7 +14,6 @@ namespace LightSaml\Logout\Action\Profile\Outbound\LogoutRequest;
 use LightSaml\Action\Profile\AbstractProfileAction;
 use LightSaml\Context\Profile\Helper\MessageContextHelper;
 use LightSaml\Context\Profile\ProfileContext;
-use LightSaml\Model\Assertion\NameID;
 
 /**
  * Sets SessionIndex of the outbounding AuthnRequest with values given in the LogoutContext SsoSessionState.

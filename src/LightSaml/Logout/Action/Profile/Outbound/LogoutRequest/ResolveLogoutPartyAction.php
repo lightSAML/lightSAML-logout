@@ -93,6 +93,6 @@ class ResolveLogoutPartyAction extends AbstractProfileAction
             }
         }
 
-        return null;
+        return;
     }
 }

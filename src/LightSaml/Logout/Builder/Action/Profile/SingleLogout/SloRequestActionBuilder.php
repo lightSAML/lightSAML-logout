@@ -32,7 +32,6 @@ use LightSaml\SamlConstants;
 class SloRequestActionBuilder extends AbstractProfileActionBuilder
 {
     /**
-     * @return void
      */
     protected function doInitialize()
     {
@@ -72,7 +71,7 @@ class SloRequestActionBuilder extends AbstractProfileActionBuilder
         ));
         $proceedActionBuilder->add(new SetSessionIndexAction(
             $this->buildContainer->getSystemContainer()->getLogger()
-        ));        
+        ));
         $proceedActionBuilder->add(new SetNotOnOrAfterAction(
             $this->buildContainer->getSystemContainer()->getLogger(),
             $this->buildContainer->getSystemContainer()->getTimeProvider(),
