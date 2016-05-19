@@ -19,6 +19,7 @@ use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\LogoutResolveAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\ResolveLogoutPartyAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\SetNameIdAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\SetNotOnOrAfterAction;
+use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\SetSessionIndexAction;
 use LightSaml\Action\Profile\Outbound\Message\MessageIdAction;
 use LightSaml\Action\Profile\Outbound\Message\MessageIssueInstantAction;
 use LightSaml\Action\Profile\Outbound\Message\MessageVersionAction;
@@ -31,7 +32,6 @@ use LightSaml\SamlConstants;
 class SloRequestActionBuilder extends AbstractProfileActionBuilder
 {
     /**
-     * @return void
      */
     protected function doInitialize()
     {
@@ -67,6 +67,9 @@ class SloRequestActionBuilder extends AbstractProfileActionBuilder
             $this->buildContainer->getSystemContainer()->getLogger()
         ));
         $proceedActionBuilder->add(new SetNameIdAction(
+            $this->buildContainer->getSystemContainer()->getLogger()
+        ));
+        $proceedActionBuilder->add(new SetSessionIndexAction(
             $this->buildContainer->getSystemContainer()->getLogger()
         ));
         $proceedActionBuilder->add(new SetNotOnOrAfterAction(
