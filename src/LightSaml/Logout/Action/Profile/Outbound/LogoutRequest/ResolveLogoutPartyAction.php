@@ -26,7 +26,7 @@ class ResolveLogoutPartyAction extends AbstractProfileAction
     /** @var EntityDescriptorStoreInterface */
     private $spEntityDescriptorStore;
 
-    /** @var  TrustOptionsStoreInterface */
+    /** @var TrustOptionsStoreInterface */
     protected $trustOptionsProvider;
 
     /**

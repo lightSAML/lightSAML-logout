@@ -14,6 +14,7 @@ namespace LightSaml\Logout\Profile;
 class Profiles
 {
     const SLO_SEND_LOGOUT_REQUEST = 'slo_send_logout_request';
+    const SLO_RECEIVE_LOGOUT_RESPONSE = 'slo_receive_logout_response';
 
     private function __construct()
     {

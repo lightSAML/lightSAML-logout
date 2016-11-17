@@ -21,4 +21,14 @@ interface LogoutSessionResolverInterface
      * @return SsoSessionState|null
      */
     public function resolve($ownEntityId);
+
+    /**
+     * @param string $entityId
+     * @param string $nameId
+     * @param string $nameIdFormat
+     * @param string $sessionIndex
+     *
+     * @return int Number of sso sessions terminated for given arguments
+     */
+    public function terminateSession($entityId, $nameId, $nameIdFormat, $sessionIndex = null);
 }

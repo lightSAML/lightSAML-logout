@@ -14,6 +14,7 @@ namespace LightSaml\Logout\Builder\Action\Profile\SingleLogout;
 use LightSaml\Action\Profile\Outbound\Message\CreateMessageIssuerAction;
 use LightSaml\Action\Profile\Outbound\Message\DestinationAction;
 use LightSaml\Action\Profile\Outbound\Message\ResolveEndpointSloAction;
+use LightSaml\Action\Profile\Outbound\Message\SaveRequestStateAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\CreateLogoutRequestAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\LogoutResolveAction;
 use LightSaml\Logout\Action\Profile\Outbound\LogoutRequest\ResolveLogoutPartyAction;
@@ -31,8 +32,6 @@ use LightSaml\SamlConstants;
 
 class SloRequestActionBuilder extends AbstractProfileActionBuilder
 {
-    /**
-     */
     protected function doInitialize()
     {
         $proceedActionBuilder = new CompositeActionBuilder();
@@ -77,6 +76,11 @@ class SloRequestActionBuilder extends AbstractProfileActionBuilder
             $this->buildContainer->getSystemContainer()->getTimeProvider(),
             120
         ));
+        $proceedActionBuilder->add(new SaveRequestStateAction(
+            $this->buildContainer->getSystemContainer()->getLogger(),
+            $this->buildContainer->getStoreContainer()->getRequestStateStore()
+        ));
+
         $proceedActionBuilder->add(new SignMessageAction(
             $this->buildContainer->getSystemContainer()->getLogger(),
             $this->buildContainer->getServiceContainer()->getSignatureResolver()

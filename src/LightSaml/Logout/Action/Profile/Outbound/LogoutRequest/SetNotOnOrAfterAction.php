@@ -22,10 +22,10 @@ use Psr\Log\LoggerInterface;
  */
 class SetNotOnOrAfterAction extends AbstractProfileAction
 {
-    /** @var  TimeProviderInterface */
+    /** @var TimeProviderInterface */
     protected $timeProvider;
 
-    /** @var  int */
+    /** @var int */
     protected $secondsSkew;
 
     /**

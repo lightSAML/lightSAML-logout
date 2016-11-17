@@ -17,7 +17,7 @@ use LightSaml\Store\Sso\SsoStateStoreInterface;
 
 class LogoutSessionResolver implements LogoutSessionResolverInterface
 {
-    /** @var  SsoStateStoreInterface */
+    /** @var SsoStateStoreInterface */
     protected $ssoStateStore;
 
     /**
@@ -45,6 +45,30 @@ class LogoutSessionResolver implements LogoutSessionResolverInterface
         $result = $this->getIdpSession($ssoState, $ownEntityId);
 
         return $result;
+    }
+
+    public function terminateSession($entityId, $nameId, $nameIdFormat, $sessionIndex = null)
+    {
+        $ssoState = $this->ssoStateStore->get();
+
+        $count = 0;
+
+        $ssoState->modify(function (SsoSessionState $session) use ($entityId, $nameId, $nameIdFormat, &$count) {
+            if (($session->getIdpEntityId() == $entityId || $session->getSpEntityId() == $entityId) &&
+                $session->getNameId() == $nameId &&
+                $session->getNameIdFormat() == $nameIdFormat
+            ) {
+                ++$count;
+
+                return false;
+            }
+
+            return true;
+        });
+
+        $this->ssoStateStore->set($ssoState);
+
+        return $count;
     }
 
     /**
